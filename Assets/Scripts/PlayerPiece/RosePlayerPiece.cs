@@ -7,6 +7,7 @@ public class RosePlayerPiece : PlayerPiece
     // Start is called before the first frame update
     private void Start()
     {
+
         //MoveSteps();
     }
     private void OnMouseDown()
@@ -26,10 +27,9 @@ public class RosePlayerPiece : PlayerPiece
         yield return new WaitForSeconds(0.25f);
         if (canMove)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i <7; i++)
             {
-                transform.localPosition= pathsParent.commonPathPoints[i].transform.localPosition;
-                Debug.Log(transform.localPosition);
+               transform.position=pathsParent.commonPathPoints[i].transform.position;
                 yield return new WaitForSeconds(0.25f);
             }
         }
