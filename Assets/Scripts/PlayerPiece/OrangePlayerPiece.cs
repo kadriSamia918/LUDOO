@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class OrangePlayerPiece : PlayerPiece
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    RollingDice orangeHomeRollingDice; 
+
+    private void Start() 
+    { 
+        orangeHomeRollingDice = GetComponentInParent<OrangeHome>().rollingDice ; 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseDown()
     {
-        
+        if(GameManager.gm.rolledDice != null) 
+        {
+            if(!isReady)
+            { 
+                if (GameManager.gm.rolledDice == orangeHomeRollingDice && GameManager.gm.numOfStepsToMove==6)
+                {
+                    MakePlayerReadyToMove();
+                    GameManager.gm.numOfStepsToMove = 0 ;
+                    return;
+                }
+            }
+            if(GameManager.gm.rolledDice == orangeHomeRollingDice && isReady ) 
+            {
+                canMove = true;
+            }
+        }
+        MoveSteps();
     }
 }

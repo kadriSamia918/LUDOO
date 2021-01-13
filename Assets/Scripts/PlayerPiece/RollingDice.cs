@@ -32,6 +32,8 @@ public class RollingDice : MonoBehaviour
             numberGot +=1;
 
             GameManager.gm.numOfStepsToMove = numberGot;
+            GameManager.gm.rolledDice= this;
+
 
             numberedSpHoldere.gameObject.SetActive(true);
             rollingDiceAnim.SetActive(false);
