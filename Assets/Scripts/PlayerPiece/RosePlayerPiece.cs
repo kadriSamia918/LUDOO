@@ -19,7 +19,7 @@ public class RosePlayerPiece : PlayerPiece
             { 
                 if (GameManager.gm.rolledDice == roseHomeRollingDice && GameManager.gm.numOfStepsToMove==6)
                 {
-                    MakePlayerReadyToMove();
+                    MakePlayerReadyToMove(pathsParent.rosePathPoint);
                     GameManager.gm.numOfStepsToMove = 0 ;
                     return;
                 }
@@ -29,7 +29,7 @@ public class RosePlayerPiece : PlayerPiece
                 canMove = true;
             }
         }
-        MoveSteps();
+        MoveSteps(pathsParent.rosePathPoint);
     }
 
 }

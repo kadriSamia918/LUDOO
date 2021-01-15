@@ -19,15 +19,16 @@ public class PlayerPiece : MonoBehaviour
         pathsParent =FindObjectOfType<PathObjectParent>();
     }
 
-    public void MoveSteps()
+    public void MoveSteps(PathPoint[] pathPointsToMoveOn_)
     {
-        moveSteps_Coroutine = StartCoroutine(MoveSteps_Enum());
+        moveSteps_Coroutine = StartCoroutine(MoveSteps_Enum(pathPointsToMoveOn_));
     }
 
-    public void MakePlayerReadyToMove() 
+    public void MakePlayerReadyToMove(PathPoint[] pathPointsToMoveOn_) 
     {
         isReady=true;
-        transform.position =pathsParent.commonPathPoints[0].transform.position; 
+        transform.position =pathPointsToMoveOn_[0].transform.position; 
+        numberOfStepsAlreadyMoved = 1;
 
     }
 
@@ -36,7 +37,7 @@ public class PlayerPiece : MonoBehaviour
 
 
 
-    IEnumerator MoveSteps_Enum()
+    IEnumerator MoveSteps_Enum(PathPoint[] pathPointsToMoveOn_)
     {
         yield return new WaitForSeconds(0.25f);
         int numOfStepsToMove = GameManager.gm.numOfStepsToMove;
@@ -45,7 +46,7 @@ public class PlayerPiece : MonoBehaviour
         {
             for (int i = numberOfStepsAlreadyMoved; i < (numberOfStepsAlreadyMoved + numOfStepsToMove); i++)
             {
-               transform.position=pathsParent.commonPathPoints[i].transform.position;
+               transform.position=pathPointsToMoveOn_[i].transform.position;
                 yield return new WaitForSeconds(0.25f);
             }
         }
