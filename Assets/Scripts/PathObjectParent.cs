@@ -9,6 +9,9 @@ public class PathObjectParent : MonoBehaviour
     public PathPoint[] bluePathPoint;
     public PathPoint[] violetPathPoint;
     public PathPoint[] orangePathPoint;
+    [Header("Scales And Positions Difference")]
+    public float[] scales;
+    public float[] positionsDifference;
 
 
 
