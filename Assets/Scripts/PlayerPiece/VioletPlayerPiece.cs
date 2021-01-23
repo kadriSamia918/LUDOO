@@ -19,6 +19,7 @@ public class VioletPlayerPiece : PlayerPiece
             { 
                 if (GameManager.gm.rolledDice == violetHomeRollingDice && GameManager.gm.numOfStepsToMove==6)
                 {
+                    GameManager.gm.violetOutPlayers += 1;
                     MakePlayerReadyToMove(pathsParent.violetPathPoint);
                     GameManager.gm.numOfStepsToMove = 0 ;
                     return;

@@ -19,6 +19,7 @@ public class RosePlayerPiece : PlayerPiece
             { 
                 if (GameManager.gm.rolledDice == roseHomeRollingDice && GameManager.gm.numOfStepsToMove==6)
                 {
+                    GameManager.gm.roseOutPlayers += 1;
                     MakePlayerReadyToMove(pathsParent.rosePathPoint);
                     GameManager.gm.numOfStepsToMove = 0 ;
                     return;

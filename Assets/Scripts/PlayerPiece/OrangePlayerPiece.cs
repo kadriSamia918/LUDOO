@@ -19,6 +19,7 @@ public class OrangePlayerPiece : PlayerPiece
             { 
                 if (GameManager.gm.rolledDice == orangeHomeRollingDice && GameManager.gm.numOfStepsToMove==6)
                 {
+                    GameManager.gm.orangeOutPlayers += 1;
                     MakePlayerReadyToMove(pathsParent.orangePathPoint);
                     GameManager.gm.numOfStepsToMove = 0 ;
                     return;

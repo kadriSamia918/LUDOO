@@ -10,8 +10,8 @@ public class RollingDice : MonoBehaviour
     [SerializeField] SpriteRenderer numberedSpHoldere;
     [SerializeField] Sprite[] numberedSprites;
 
-    bool canDiceRoll = true;
     Coroutine generateRandomNumOnDice_Coroutine;
+    public int outPieces;
 
     private void OnMouseDown()
     {
@@ -21,9 +21,9 @@ public class RollingDice : MonoBehaviour
     IEnumerator GenerateRandomNumberOnDice_Enum()
     {
         yield return new WaitForEndOfFrame();
-        if(canDiceRoll)
+        if(GameManager.gm.canDiceRoll)
         {
-            canDiceRoll = false;
+            GameManager.gm.canDiceRoll = false;
             numberedSpHoldere.gameObject.SetActive(false);
             rollingDiceAnim.SetActive(true);
             yield return new WaitForSeconds(1f);
@@ -38,7 +38,22 @@ public class RollingDice : MonoBehaviour
             numberedSpHoldere.gameObject.SetActive(true);
             rollingDiceAnim.SetActive(false);
             yield return new WaitForEndOfFrame();
-            canDiceRoll = true;
+
+            if(GameManager.gm.rolledDice == GameManager.gm.manageRolingDice[0]){ outPieces = GameManager.gm.roseOutPlayers;}
+            else if(GameManager.gm.rolledDice == GameManager.gm.manageRolingDice[1]){ outPieces = GameManager.gm.blueOutPlayers;}
+            else if(GameManager.gm.rolledDice == GameManager.gm.manageRolingDice[2]){ outPieces = GameManager.gm.orangeOutPlayers;}
+            else if(GameManager.gm.rolledDice == GameManager.gm.manageRolingDice[3]){ outPieces = GameManager.gm.violetOutPlayers;} 
+            if(GameManager.gm.numOfStepsToMove != 6 && outPieces == 0)
+               {
+                    GameManager.gm.canDiceRoll = true;
+                    GameManager.gm.selfDice = false;
+                    GameManager.gm.transferDice = true;
+                    yield return new WaitForSeconds(0.5f);
+                    GameManager.gm.RolingDiceManager();
+               }
+            
+
+
             if(generateRandomNumOnDice_Coroutine != null)
             {
                 StopCoroutine(generateRandomNumOnDice_Coroutine);

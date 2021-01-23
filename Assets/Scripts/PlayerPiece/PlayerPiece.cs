@@ -35,16 +35,18 @@ public class PlayerPiece : MonoBehaviour
 
         previousPathPoint = pathPointsToMoveOn_[0];
         currentPathPoint =pathPointsToMoveOn_[0];
+        currentPathPoint.AddPlayerPiece(this);
         GameManager.gm.RemovePathPoint(previousPathPoint);
         GameManager.gm.AddPathPoint(currentPathPoint);
+
+        GameManager.gm.canDiceRoll = true;
+        GameManager.gm.selfDice = true;
+        GameManager.gm.transferDice = false;
+
 
     }
 
     
-
-
-
-
     IEnumerator MoveSteps_Enum(PathPoint[] pathPointsToMoveOn_)
     {
         yield return new WaitForSeconds(0.25f);
@@ -65,6 +67,7 @@ public class PlayerPiece : MonoBehaviour
         if(isPathPointsAvailableToMove(numOfStepsToMove, numberOfStepsAlreadyMoved, pathPointsToMoveOn_))
         {
                numberOfStepsAlreadyMoved += numOfStepsToMove;
+               GameManager.gm.numOfStepsToMove = 0;
 
                GameManager.gm.RemovePathPoint(previousPathPoint);
                previousPathPoint.RemovePlayerPiece(this);
@@ -72,7 +75,19 @@ public class PlayerPiece : MonoBehaviour
                currentPathPoint.AddPlayerPiece(this);
                GameManager.gm.AddPathPoint(currentPathPoint);
                previousPathPoint = currentPathPoint;
+               if(GameManager.gm.numOfStepsToMove != 6 )
+               {
+                    GameManager.gm.selfDice = false;
+                    GameManager.gm.transferDice = true;
+               }else{
+                    GameManager.gm.selfDice = true;
+                    GameManager.gm.transferDice = false;
+               }
         }
+
+        GameManager.gm.canPlayMove = true;
+
+         GameManager.gm.RolingDiceManager();
 
         if(moveSteps_Coroutine != null)
         {
