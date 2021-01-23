@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PathPoint : MonoBehaviour
 {
-    PathPoint[] pathpointToMoveon_;
+    PathPoint [] pathpointToMoveon_;
     public PathObjectParent pathObjParent;
     public List<PlayerPiece> playerPiecesList = new List<PlayerPiece>();
 
@@ -40,18 +40,18 @@ public class PathPoint : MonoBehaviour
 
     IEnumerator revertOnStart(PlayerPiece playerPiece_)
     {
-        if(name.Contains("rose")){GameManager.gm.roseOutPlayers -= 1;pathpointToMoveon_= pathObjParent.rosePathPoint;}
-        else if(name.Contains("blue")){GameManager.gm.blueOutPlayers -= 1; pathpointToMoveon_= pathObjParent.bluePathPoint;}
-        else if(name.Contains("orange")){GameManager.gm.orangeOutPlayers -= 1; pathpointToMoveon_= pathObjParent.orangePathPoint;}
-        else if(name.Contains("violet")){GameManager.gm.violetOutPlayers -= 1; pathpointToMoveon_= pathObjParent.violetPathPoint;}
+        if(playerPiece_.name.Contains("Rose")){GameManager.gm.roseOutPlayers -= 1; pathpointToMoveon_= pathObjParent.rosePathPoint;}
+        else if(playerPiece_.name.Contains("Blue")){GameManager.gm.blueOutPlayers -= 1; pathpointToMoveon_= pathObjParent.bluePathPoint;}
+        else if(playerPiece_.name.Contains("Orange")){GameManager.gm.orangeOutPlayers -= 1; pathpointToMoveon_= pathObjParent.orangePathPoint;}
+        else if(playerPiece_.name.Contains("Violet")){GameManager.gm.violetOutPlayers -= 1; pathpointToMoveon_= pathObjParent.violetPathPoint;}
         
-        for(int i =playerPiece_.numberOfStepsAlreadyMoved; i>0; i-- )
+        for(int i = playerPiece_.numberOfStepsAlreadyMoved; i>=0; i-- )
         {
             playerPiece_.transform.position = pathpointToMoveon_[i].transform.position;
             yield return new WaitForSeconds(0.02f);
         }
 
-        playerPiecesList[0].transform.position =pathObjParent.BasePoint[BasePointPosition(playerPiece_.name)].transform.position;
+        playerPiece_.transform.position =pathObjParent.BasePoint[BasePointPosition(playerPiece_.name)].transform.position;
     }
 
     int BasePointPosition(string name)
