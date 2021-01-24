@@ -16,6 +16,8 @@ public class PathPoint : MonoBehaviour
     }
     public bool AddPlayerPiece(PlayerPiece playerPiece_)
     {
+         if(this.name != "PathPoint" && this.name != "PathPoint (8)" &&this.name != "PathPoint (13)" &&this.name != "PathPoint (21)" &&this.name != "PathPoint (26)" &&this.name != "PathPoint (34)"
+         && this.name != "PathPoint (39)" && this.name != "PathPoint (47)" && this.name != "CenterHomePoint"){
         if(playerPiecesList.Count == 1)
         {
             string preePlayerPiceName = playerPiecesList[0].name;
@@ -34,6 +36,7 @@ public class PathPoint : MonoBehaviour
                return false;
             }
         }
+         }
         AddPlayer(playerPiece_);
         return true;
     }
