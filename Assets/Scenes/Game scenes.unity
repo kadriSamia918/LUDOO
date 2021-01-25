@@ -2901,11 +2901,36 @@ MonoBehaviour:
   blueOutPlayers: 0
   orangeOutPlayers: 0
   violetOutPlayers: 0
+  roseCompletePlayers: 0
+  blueCompletePlayers: 0
+  orangeCompletePlayers: 0
+  violetCompletePlayers: 0
   manageRolingDice:
   - {fileID: 1783116906}
   - {fileID: 1249328048}
   - {fileID: 1369499177}
   - {fileID: 907908717}
+  rosePlayerPiece:
+  - {fileID: 542523050}
+  - {fileID: 1029171336}
+  - {fileID: 791729766}
+  - {fileID: 1175564223}
+  bluePlayerPiece:
+  - {fileID: 590007250}
+  - {fileID: 608741091}
+  - {fileID: 677357023}
+  - {fileID: 1386883862}
+  orangePlayerPiece:
+  - {fileID: 3560643932412058919}
+  - {fileID: 1122207961}
+  - {fileID: 1263708401}
+  - {fileID: 1523965020}
+  violetPlayerPiece:
+  - {fileID: 1483227240}
+  - {fileID: 1898674495}
+  - {fileID: 802213972}
+  - {fileID: 939144292}
+  totalPlayerCanPlay: 0
 --- !u!4 &522815244
 Transform:
   m_ObjectHideFlags: 0

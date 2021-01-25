@@ -16,6 +16,8 @@ public class PathPoint : MonoBehaviour
     }
     public bool AddPlayerPiece(PlayerPiece playerPiece_)
     {
+        if (this.name=="CenterHomePoint") { Compled(playerPiece_);}
+
          if(this.name != "PathPoint" && this.name != "PathPoint (8)" &&this.name != "PathPoint (13)" &&this.name != "PathPoint (21)" &&this.name != "PathPoint (26)" &&this.name != "PathPoint (34)"
          && this.name != "PathPoint (39)" && this.name != "PathPoint (47)" && this.name != "CenterHomePoint"){
         if(playerPiecesList.Count == 1)
@@ -83,6 +85,19 @@ public class PathPoint : MonoBehaviour
             playerPiecesList.Remove(playerPiece_);
 
         }
+    }
+
+    private void Compled(PlayerPiece playerPiece_) {
+
+        if(playerPiece_.name.Contains("Rose")){GameManager.gm.roseCompletePlayers += 1;GameManager.gm.roseOutPlayers -= 1; if(GameManager.gm.roseCompletePlayers==4) {ShowCelibration();}}
+        else if(playerPiece_.name.Contains("Blue")){GameManager.gm.blueCompletePlayers += 1; GameManager.gm.blueOutPlayers -= 1; if(GameManager.gm.blueCompletePlayers==4) {ShowCelibration();}}
+        else if(playerPiece_.name.Contains("Orange")){GameManager.gm.orangeCompletePlayers += 1;GameManager.gm.orangeOutPlayers -= 1; if(GameManager.gm.orangeCompletePlayers==4) {ShowCelibration();}}
+        else if(playerPiece_.name.Contains("Violet")){GameManager.gm.violetCompletePlayers += 1;GameManager.gm.violetOutPlayers -= 1; if(GameManager.gm.violetCompletePlayers==4) {ShowCelibration();}}
+
+    }
+
+    void ShowCelibration(){
+
     }
     
    public void RescaleAndRespositionAllPlayerPieces()
