@@ -25,10 +25,12 @@ public class RosePlayerPiece : PlayerPiece
                     return;
                 }
             }
-            if(GameManager.gm.rolledDice == roseHomeRollingDice && isReady ) 
+            if (GameManager.gm.rolledDice == roseHomeRollingDice && isReady)
             {
                 canMove = true;
             }
+            else
+                canMove = false;
         }
         MoveSteps(pathsParent.rosePathPoint);
     }

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PathPoint : MonoBehaviour
 {
-    PathPoint [] pathpointToMoveon_;
+    public GameObject WinnerPanel;
+
+    PathPoint[] pathpointToMoveon_;
     public PathObjectParent pathObjParent;
     public List<PlayerPiece> playerPiecesList = new List<PlayerPiece>();
 
@@ -45,18 +47,18 @@ public class PathPoint : MonoBehaviour
 
     IEnumerator revertOnStart(PlayerPiece playerPiece_)
     {
-        if(playerPiece_.name.Contains("Rose")){GameManager.gm.roseOutPlayers -= 1; pathpointToMoveon_= pathObjParent.rosePathPoint;}
-        else if(playerPiece_.name.Contains("Blue")){GameManager.gm.blueOutPlayers -= 1; pathpointToMoveon_= pathObjParent.bluePathPoint;}
-        else if(playerPiece_.name.Contains("Orange")){GameManager.gm.orangeOutPlayers -= 1; pathpointToMoveon_= pathObjParent.orangePathPoint;}
-        else if(playerPiece_.name.Contains("Violet")){GameManager.gm.violetOutPlayers -= 1; pathpointToMoveon_= pathObjParent.violetPathPoint;}
-        
-        for(int i = playerPiece_.numberOfStepsAlreadyMoved; i>=0; i-- )
-        {
-            playerPiece_.transform.position = pathpointToMoveon_[i].transform.position;
-            yield return new WaitForSeconds(0.02f);
-        }
+            if (playerPiece_.name.Contains("Rose")) { GameManager.gm.roseOutPlayers -= 1; pathpointToMoveon_ = pathObjParent.rosePathPoint; }
+            else if (playerPiece_.name.Contains("Blue")) { GameManager.gm.blueOutPlayers -= 1; pathpointToMoveon_ = pathObjParent.bluePathPoint; }
+            else if (playerPiece_.name.Contains("Orange")) { GameManager.gm.orangeOutPlayers -= 1; pathpointToMoveon_ = pathObjParent.orangePathPoint; }
+            else if (playerPiece_.name.Contains("Violet")) { GameManager.gm.violetOutPlayers -= 1; pathpointToMoveon_ = pathObjParent.violetPathPoint; }
 
-        playerPiece_.transform.position =pathObjParent.BasePoint[BasePointPosition(playerPiece_.name)].transform.position;
+            for (int i = playerPiece_.numberOfStepsAlreadyMoved; i >= 0; i--)
+            {
+                playerPiece_.transform.position = pathpointToMoveon_[i].transform.position;
+                yield return new WaitForSeconds(0.02f);
+            }
+
+            playerPiece_.transform.position = pathObjParent.BasePoint[BasePointPosition(playerPiece_.name)].transform.position; 
     }
 
     int BasePointPosition(string name)
@@ -97,10 +99,11 @@ public class PathPoint : MonoBehaviour
     }
 
     void ShowCelibration(){
+       WinnerPanel.SetActive(true);
 
     }
-    
-   public void RescaleAndRespositionAllPlayerPieces()
+
+    public void RescaleAndRespositionAllPlayerPieces()
     {
 
         int plsCount = playerPiecesList.Count;

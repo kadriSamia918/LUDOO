@@ -25,10 +25,12 @@ public class OrangePlayerPiece : PlayerPiece
                     return;
                 }
             }
-            if(GameManager.gm.rolledDice == orangeHomeRollingDice && isReady ) 
+            if (GameManager.gm.rolledDice == orangeHomeRollingDice && isReady)
             {
                 canMove = true;
             }
+            else
+                canMove = false;
         }
         MoveSteps(pathsParent.orangePathPoint);
     }

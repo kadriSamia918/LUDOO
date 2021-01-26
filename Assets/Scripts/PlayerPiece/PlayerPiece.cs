@@ -54,67 +54,69 @@ public class PlayerPiece : MonoBehaviour
          GameManager.gm.transferDice = false;
          yield return new WaitForSeconds(0.25f);
         int numOfStepsToMove = GameManager.gm.numOfStepsToMove;
-        
         if (canMove)
         {
             for (int i = numberOfStepsAlreadyMoved; i < (numberOfStepsAlreadyMoved + numOfStepsToMove); i++)
             {
-               // currentPathPoint.RescaleandReposionalAllPlayerPice();
-                if(isPathPointsAvailableToMove(numOfStepsToMove, numberOfStepsAlreadyMoved, pathPointsToMoveOn_))
+                // currentPathPoint.RescaleandReposionalAllPlayerPice();
+                if (isPathPointsAvailableToMove(numOfStepsToMove, numberOfStepsAlreadyMoved, pathPointsToMoveOn_))
                 {
-                    transform.position=pathPointsToMoveOn_[i].transform.position;
+                    transform.position = pathPointsToMoveOn_[i].transform.position;
                     GameManager.gm.RemovePathPoint(pathPointsToMoveOn_[i]);
                     yield return new WaitForSeconds(0.25f);
                 }
             }
         }
-        if(isPathPointsAvailableToMove(numOfStepsToMove, 
-        numberOfStepsAlreadyMoved, pathPointsToMoveOn_))
-        {
-               numberOfStepsAlreadyMoved += numOfStepsToMove;
-               GameManager.gm.numOfStepsToMove = 0;
 
-               GameManager.gm.RemovePathPoint(previousPathPoint);
-               previousPathPoint.RemovePlayerPiece(this);
-               currentPathPoint = 
-               pathPointsToMoveOn_[numberOfStepsAlreadyMoved - 1];
-              if( currentPathPoint.AddPlayerPiece(this))
-              {
-                 if(numberOfStepsAlreadyMoved==57)
-                  {
-                     GameManager.gm.selfDice =true; 
+            if (isPathPointsAvailableToMove(numOfStepsToMove,
+            numberOfStepsAlreadyMoved, pathPointsToMoveOn_))
+            {
+                numberOfStepsAlreadyMoved += numOfStepsToMove;
+                GameManager.gm.numOfStepsToMove = 0;
 
-                  }
-                  else
-                  {
-                     if(GameManager.gm.numOfStepsToMove != 6 )
-                       {
-                         GameManager.gm.transferDice = true;
-                       }else{
-                         GameManager.gm.selfDice = true;
-                       }
+                GameManager.gm.RemovePathPoint(previousPathPoint);
+                previousPathPoint.RemovePlayerPiece(this);
+                currentPathPoint =
+                pathPointsToMoveOn_[numberOfStepsAlreadyMoved - 1];
+                if (currentPathPoint.AddPlayerPiece(this))
+                {
+                    if (numberOfStepsAlreadyMoved == 57)
+                    {
+                        GameManager.gm.selfDice = true;
 
-                 }
-              }
-              else
-              {
-                 GameManager.gm.selfDice =true; 
-              }
-               GameManager.gm.AddPathPoint(currentPathPoint);
-               previousPathPoint = currentPathPoint;
-              
-        }
+                    }
+                    else
+                    {
+                        if (GameManager.gm.numOfStepsToMove != 6)
+                        {
+                            GameManager.gm.transferDice = true;
+                        }
+                        else
+                        {
+                            GameManager.gm.selfDice = true;
+                        }
 
-        GameManager.gm.canPlayMove = true;
+                    }
+                }
+                else
+                {
+                    GameManager.gm.selfDice = true;
+                }
+                GameManager.gm.AddPathPoint(currentPathPoint);
+                previousPathPoint = currentPathPoint;
 
-         GameManager.gm.RolingDiceManager();
+            }
 
-        if(moveSteps_Coroutine != null)
-        {
-            StopCoroutine(moveSteps_Coroutine);
-        }
+            GameManager.gm.canPlayMove = true;
 
+            GameManager.gm.RolingDiceManager();
 
+            if (moveSteps_Coroutine != null)
+            {
+                StopCoroutine(moveSteps_Coroutine);
+            }
+
+        
     }
     
     bool isPathPointsAvailableToMove(int numOfStepsToMove_, int numberOfStepsAlreadyMoved_, PathPoint[] pathPointsToMoveOn_)

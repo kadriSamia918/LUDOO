@@ -25,10 +25,12 @@ public class VioletPlayerPiece : PlayerPiece
                     return;
                 }
             }
-            if(GameManager.gm.rolledDice == violetHomeRollingDice && isReady ) 
+            if (GameManager.gm.rolledDice == violetHomeRollingDice && isReady)
             {
                 canMove = true;
             }
+            else
+                canMove = false;
         }
         MoveSteps(pathsParent.violetPathPoint);
     }

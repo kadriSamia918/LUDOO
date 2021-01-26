@@ -26,10 +26,13 @@ public class BluePlayerPiece : PlayerPiece
                     return;
                 }
             }
-            if(GameManager.gm.rolledDice == blueHomeRollingDice && isReady ) 
+            if (GameManager.gm.rolledDice == blueHomeRollingDice && isReady)
             {
                 canMove = true;
+
             }
+            else
+                canMove = false;
         }
         MoveSteps(pathsParent.bluePathPoint);
     }
