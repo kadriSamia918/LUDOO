@@ -52,6 +52,6 @@ is returned to its starting circle
 
 **The first person to move all 4 pieces into the home triangle wins.
 
-![cptr1](http://github.com/kadriSamia918/LUDOO/blob/master/cptr1.png)
+![alt text](https://github.com/kadriSamia918/LUDOO/blob/master/cptr1.png?raw=true)
 
 
