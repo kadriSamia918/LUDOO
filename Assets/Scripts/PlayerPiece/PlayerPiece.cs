@@ -58,7 +58,7 @@ public class PlayerPiece : MonoBehaviour
         {
             for (int i = numberOfStepsAlreadyMoved; i < (numberOfStepsAlreadyMoved + numOfStepsToMove); i++)
             {
-                // currentPathPoint.RescaleandReposionalAllPlayerPice();
+                //currentPathPoint.RescaleAndRespositionAllPlayerPieces();
                 if (isPathPointsAvailableToMove(numOfStepsToMove, numberOfStepsAlreadyMoved, pathPointsToMoveOn_))
                 {
                     transform.position = pathPointsToMoveOn_[i].transform.position;
