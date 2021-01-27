@@ -29,11 +29,12 @@ public class BluePlayerPiece : PlayerPiece
             if (GameManager.gm.rolledDice == blueHomeRollingDice && isReady)
             {
                 canMove = true;
+                MoveSteps(pathsParent.bluePathPoint);
+
 
             }
             else
                 canMove = false;
         }
-        MoveSteps(pathsParent.bluePathPoint);
     }
 }

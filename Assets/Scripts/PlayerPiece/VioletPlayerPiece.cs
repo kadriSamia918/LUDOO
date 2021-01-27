@@ -28,10 +28,11 @@ public class VioletPlayerPiece : PlayerPiece
             if (GameManager.gm.rolledDice == violetHomeRollingDice && isReady)
             {
                 canMove = true;
+                MoveSteps(pathsParent.violetPathPoint);
+
             }
             else
                 canMove = false;
         }
-        MoveSteps(pathsParent.violetPathPoint);
     }
 }

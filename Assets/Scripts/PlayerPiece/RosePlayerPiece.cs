@@ -28,11 +28,13 @@ public class RosePlayerPiece : PlayerPiece
             if (GameManager.gm.rolledDice == roseHomeRollingDice && isReady)
             {
                 canMove = true;
+                MoveSteps(pathsParent.rosePathPoint);
+
+
             }
             else
                 canMove = false;
         }
-        MoveSteps(pathsParent.rosePathPoint);
     }
 
 }

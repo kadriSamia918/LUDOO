@@ -28,10 +28,11 @@ public class OrangePlayerPiece : PlayerPiece
             if (GameManager.gm.rolledDice == orangeHomeRollingDice && isReady)
             {
                 canMove = true;
+                MoveSteps(pathsParent.orangePathPoint);
+
             }
             else
                 canMove = false;
         }
-        MoveSteps(pathsParent.orangePathPoint);
     }
 }

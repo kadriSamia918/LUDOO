@@ -28,13 +28,13 @@ public class UIManger : MonoBehaviour
 
    }
 
-  public void Game4(){
+ /* public void Game4(){
       GameManager.gm.totalPlayerCanPlay=1;
        MainPanel.SetActive(false);
        GamePanel.SetActive(true);
 
    }
-
+    */
    void Game1Setting() { 
        HidePlayers(GameManager.gm.bluePlayerPiece);
        HidePlayers(GameManager.gm.violetPlayerPiece);
