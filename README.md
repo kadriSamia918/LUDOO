@@ -44,14 +44,11 @@ During this project, we carried out the following work :
 -L'environnement de développement : Visual Studio Code.
 
 ## Réglement
-*A player must throw a 6 to move a piece from the starting circle onto
+**A player must throw a 6 to move a piece from the starting circle onto
 the first square on the track.
 
-*If a piece lands on a piece of a different colour, the piece jumped upon
+**If a piece lands on a piece of a different colour, the piece jumped upon
 is returned to its starting circle
 
-*The first person to move all 4 pieces into the home triangle wins.
+**The first person to move all 4 pieces into the home triangle wins.
 
-*When a piece has circumnavigated the board, it proceeds up the home
-column. A piece can only be moved onto the home triangle by an exact
-throw.
