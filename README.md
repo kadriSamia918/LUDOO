@@ -1,6 +1,8 @@
 # LUDOO
 #group leader : Syrine Ourari
 
+## Description
+
 Ludo is a strategy board game for two to fourplayers, in which the players race their four tokens from start to finish according to the rolls of a single die. 
 Like other cross and circle games, Ludo is derived from the Indian game Pachisi, but simpler. The game and its variations are popular in many countries and under 
 various names.
