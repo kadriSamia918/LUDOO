@@ -52,6 +52,5 @@ is returned to its starting circle
 
 **The first person to move all 4 pieces into the home triangle wins.
 
-![111](https://user-images.githubusercontent.com/59748809/84081618-9a9c7480-a9de-11ea-87ab-cda4150cf694.PNG)
 
 
