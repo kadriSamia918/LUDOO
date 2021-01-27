@@ -54,7 +54,6 @@ is returned to its starting circle
 
 ![alt text](https://github.com/kadriSamia918/LUDOO/blob/master/interface2.png?raw=true)
 ![alt text](https://github.com/kadriSamia918/LUDOO/blob/master/interface3.png?raw=true)
-![alt text](https://github.com/kadriSamia918/LUDOO/blob/master/cptr1.png?raw=true)
 ![alt text](https://github.com/kadriSamia918/LUDOO/blob/master/interface1.png?raw=true)
 
 
