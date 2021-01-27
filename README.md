@@ -10,7 +10,7 @@ During this project, we carried out the following work :
 
 3/Creation of the Game manager and moving the pink pieces according to the number given by the dice.
 
-4/Placement of the 3 other dices;
+4/Placement of the 3 other dices.
 
 5/Ensure the movement of each piece according to the number obtained by the corresponding dice.
 
