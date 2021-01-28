@@ -44,7 +44,7 @@ public class PathPoint : MonoBehaviour
         AddPlayer(playerPiece_);
         return true;
     }
-
+    //killing pieces
     IEnumerator revertOnStart(PlayerPiece playerPiece_)
     {
             if (playerPiece_.name.Contains("Rose")) { GameManager.gm.roseOutPlayers -= 1; pathpointToMoveon_ = pathObjParent.rosePathPoint; Debug.Log("rose"); }
